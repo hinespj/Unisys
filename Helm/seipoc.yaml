@@ -4,32 +4,26 @@ global:
     ENVIRONMENT_NAME: unisys
     DOMAIN_NAME: ping-devops.com
   labels:
-    facile.pingidentity.cloud/admin-env-id: aaf54acd-b7ca-41a5-a133-f95aa58316d9
-    facile.pingidentity.cloud/admin-user-id: cc9e0a23-2326-44e0-9ede-9b3c39077737
-  annotations:
-    facile.pingidentity.cloud/admin-env-id: aaf54acd-b7ca-41a5-a133-f95aa58316d9
-    facile.pingidentity.cloud/admin-user-id: cc9e0a23-2326-44e0-9ede-9b3c39077737
+    facile.pingidentity.cloud/admin-env-id: d159739d-9eeb-4c83-8208-551acfdda03e
+    facile.pingidentity.cloud/admin-user-id: dd476d20-fbb0-44e8-b037-064ef51f1435
 pingOne:
   envRegion: NA
   administration:
     useMyPing: true
-    envId: aaf54acd-b7ca-41a5-a133-f95aa58316d9
-    adminUserId: cc9e0a23-2326-44e0-9ede-9b3c39077737
+    envId: d159739d-9eeb-4c83-8208-551acfdda03e
+    adminUserId: dd476d20-fbb0-44e8-b037-064ef51f1435
     workerApp:
-      id: 18625755-a45f-4d0b-924c-ba7da3a9b545
-      secret: Q5k51AvaKgLKdizVSanMK_8IlW_5RV2~9CG0Lpy_i123g77m4w~Wa4wBJQW6NLy_
+      id: 817ad030-8051-46e8-ab7a-e311fb46fca4
+      secret: gY2YJH7cG.9Uug269pEQHeBlOgLUqVf4x_DRjh4B6gV933l6G3_w3hO7QZZ~GRqI
     pfLogonApp:
-      id: 0d5d4f55-b826-4c78-bbad-9b4b73c6ad62
-      secret: zRps73RbBdJDBCKTei3R.zu_H_IuX_JOgqIyDNy1~rr.ru4TgBz1_zeXFDGom5Nz
+      id: 5655701a-8a21-4083-99a4-a9aea7b95b36
+      secret: P5R9JAHmL1T7K521G42UF_wzn4t52gSxMGN0u2-C1TCECD_-yJQL8-Jm2mZ8alp8
     paLogonApp:
-      id: 20518485-e593-451b-8128-1e277b7bfb0c
-      secret: R6KqmTowiFooC7ogfduQExw0fxk2wzSpuj_C14_P-lWcPP8O4a-xVV2pmntAtsIh
+      id: 85e19832-6d9c-4e33-b0f6-a865a61fa611
+      secret: KCa8H6cGwb6sBjrhxje3wR.REuQUNB6EGJG3UxgFcptTv7zV7z3Upnpt75h~IeU.
     pdLogonApp:
-      id: 20518485-e593-451b-8128-1e277b7bfb0c
-      secret: R6KqmTowiFooC7ogfduQExw0fxk2wzSpuj_C14_P-lWcPP8O4a-xVV2pmntAtsIh
-    pazLogonApp:
-      id: 171f8e3d-9abe-4d8a-9638-2b8e8628c87a
-      secret: fOBqI66yVQuHu0LJD_LIJ0gcG2iZSVJunfQR12J0_7D6NQ_ajwZ7L1CcxHigneB4
+      id: 85e19832-6d9c-4e33-b0f6-a865a61fa611
+      secret: KCa8H6cGwb6sBjrhxje3wR.REuQUNB6EGJG3UxgFcptTv7zV7z3Upnpt75h~IeU.
 usePingConfig:
   enabled: true
 baseline:
@@ -42,7 +36,7 @@ capabilities:
     enabled: true
   accessManager:
     enabled: true
-  authorize:
+  dynamicAuthorization:
     enabled: false
   risk:
     enabled: true
@@ -69,7 +63,7 @@ ping-devops:
   pingfederate-admin:
     enabled: true
     envs:
-      SERVER_PROFILE_URL: https://github.com/hinespj/unisys.git
+      SERVER_PROFILE_URL: https://github.com/hinespj/seipoc.git
       SERVER_PROFILE_PATH: server-profile/pingfederate
       SERVER_PROFILE_BRANCH: main
     workload:
@@ -77,9 +71,10 @@ ping-devops:
   pingfederate-engine:
     enabled: true
     envs:
-      SERVER_PROFILE_URL: https://github.com/hinespj/unisys.git
+      SERVER_PROFILE_URL: https://github.com/hinespj/seipoc.git
       SERVER_PROFILE_PATH: server-profile/pingfederate
       SERVER_PROFILE_BRANCH: main
+      TAIL_LOG_FILES: /opt/out/instance/log/audit.log /opt/out/instance/log/server.log
       PF_LOG_LEVEL: DEBUG
   pingdirectory:
     enabled: true
@@ -90,7 +85,9 @@ ping-devops:
   pingaccess-engine:
     enabled: true
     envs:
-      PA_LOG_LEVEL: DEBUG
+      TAIL_LOG_FILES: >-
+        /opt/out/instance/log/pingaccess_engine_audit.log
+        /opt/out/instance/log/pingaccess.log
   pingdatagovernance:
     enabled: false
   pingdatagovernancepap:

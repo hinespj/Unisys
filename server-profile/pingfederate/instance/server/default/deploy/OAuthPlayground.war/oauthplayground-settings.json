@@ -7,7 +7,7 @@
   "ccSecretClientSecret": "2Federate",
   "acOicClientId": "ac_oic_client",
   "acOicClientSecret": "abc123DEFghijklmnop4567rstuvwxyzZYXWUT8910SRQPOnmlijhoauthplaygroundapplication",
-  "basePfUrl": "https://trowepricepoc.ping-devops.com:443",
+  "basePfUrl": "https://unisys.ping-devops.com:443",
   "imOicClientSecret": "",
   "rsClientId": "rs_client",
   "acClientId": "ac_client",
@@ -31,7 +31,7 @@
   "configureCiba": false,
   "reportCertificateErrors": false,
   "displaySetupMessage": false,
-  "adminHostAndPort": "pingfederate-admin-trowepricepoc.ping-devops.com:443",
+  "adminHostAndPort": "pingfederate-admin-unisys.ping-devops.com:443",
   "adminUsername": "administrator",
   "txClientId": "tx_client",
   "txClientSecret": ""
