@@ -1,0 +1,4 @@
+helm uninstall unisys 
+
+Kubectl delete pvc/out-dir-unisys-pingdirectory-0
+Kubectl delete pvc/out-dir-unisys-pingfederate-admin-0
