@@ -84,7 +84,7 @@ ping-devops:
   pingdirectory:
     enabled: true
   pingdatasync:
-    enabled: true
+    enabled: false
   pingaccess-admin:
     enabled: true
   pingaccess-engine:
