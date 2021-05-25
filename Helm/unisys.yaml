@@ -1,0 +1,99 @@
+global:
+  envs:
+    USER_BASE_DN: dc=sampleCiam.com
+    ENVIRONMENT_NAME: unisys
+    DOMAIN_NAME: ping-devops.com
+  labels:
+    facile.pingidentity.cloud/admin-env-id: aaf54acd-b7ca-41a5-a133-f95aa58316d9
+    facile.pingidentity.cloud/admin-user-id: cc9e0a23-2326-44e0-9ede-9b3c39077737
+  annotations:
+    facile.pingidentity.cloud/admin-env-id: aaf54acd-b7ca-41a5-a133-f95aa58316d9
+    facile.pingidentity.cloud/admin-user-id: cc9e0a23-2326-44e0-9ede-9b3c39077737
+pingOne:
+  envRegion: NA
+  administration:
+    useMyPing: true
+    envId: aaf54acd-b7ca-41a5-a133-f95aa58316d9
+    adminUserId: cc9e0a23-2326-44e0-9ede-9b3c39077737
+    workerApp:
+      id: 18625755-a45f-4d0b-924c-ba7da3a9b545
+      secret: Q5k51AvaKgLKdizVSanMK_8IlW_5RV2~9CG0Lpy_i123g77m4w~Wa4wBJQW6NLy_
+    pfLogonApp:
+      id: 0d5d4f55-b826-4c78-bbad-9b4b73c6ad62
+      secret: zRps73RbBdJDBCKTei3R.zu_H_IuX_JOgqIyDNy1~rr.ru4TgBz1_zeXFDGom5Nz
+    paLogonApp:
+      id: 20518485-e593-451b-8128-1e277b7bfb0c
+      secret: R6KqmTowiFooC7ogfduQExw0fxk2wzSpuj_C14_P-lWcPP8O4a-xVV2pmntAtsIh
+    pdLogonApp:
+      id: 20518485-e593-451b-8128-1e277b7bfb0c
+      secret: R6KqmTowiFooC7ogfduQExw0fxk2wzSpuj_C14_P-lWcPP8O4a-xVV2pmntAtsIh
+    pazLogonApp:
+      id: 171f8e3d-9abe-4d8a-9638-2b8e8628c87a
+      secret: fOBqI66yVQuHu0LJD_LIJ0gcG2iZSVJunfQR12J0_7D6NQ_ajwZ7L1CcxHigneB4
+usePingConfig:
+  enabled: true
+baseline:
+  directory:
+    enabled: true
+capabilities:
+  authenticationAuthority:
+    enabled: true
+  multiFactorAuthentication:
+    enabled: true
+  accessManager:
+    enabled: true
+  authorize:
+    enabled: false
+  risk:
+    enabled: true
+  verify:
+    enabled: true
+useCases:
+  ciba:
+    enabled: false
+  consentManagement:
+    enabled: true
+  delegatedAdministration:
+    enabled: true
+  accessControl:
+    enabled: true
+  scim:
+    enabled: false
+  socialConnections:
+    enabled: false
+  userProfiles:
+    enabled: true
+  verifyDemoEnv:
+    enabled: true
+ping-devops:
+  pingfederate-admin:
+    enabled: true
+    envs:
+      SERVER_PROFILE_URL: https://github.com/hinespj/usisys.git
+      SERVER_PROFILE_PATH: server-profile/pingfederate
+      SERVER_PROFILE_BRANCH: main
+    workload:
+      type: StatefulSet
+  pingfederate-engine:
+    enabled: true
+    envs:
+      SERVER_PROFILE_URL: https://github.com/hinespj/usisys.git
+      SERVER_PROFILE_PATH: server-profile/pingfederate
+      SERVER_PROFILE_BRANCH: main
+      PF_LOG_LEVEL: DEBUG
+  pingdirectory:
+    enabled: true
+  pingdatasync:
+    enabled: true
+  pingaccess-admin:
+    enabled: true
+  pingaccess-engine:
+    enabled: true
+    envs:
+      PA_LOG_LEVEL: DEBUG
+  pingdatagovernance:
+    enabled: false
+  pingdatagovernancepap:
+    enabled: false
+  pingdelegator:
+    enabled: true
